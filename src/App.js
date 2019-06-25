@@ -4,7 +4,14 @@ import Header from './components/Header.js';
 import NuevaCita from './components/NuevaCita.js';
 
 class App extends Component {
-  state = {  }
+  state = { 
+
+  }
+
+  crearNuevaCita = datos => {
+    console.log(datos);
+  }
+
   render() { 
     return ( 
       <div className="container">
@@ -13,7 +20,9 @@ class App extends Component {
         />
         <div className="row">
           <div className="col-md-10 mx-auto">
-            <NuevaCita />
+            <NuevaCita 
+              crearNuevaCita = {this.crearNuevaCita}
+            />
           </div>
         </div>
       </div>

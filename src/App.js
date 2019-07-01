@@ -2,10 +2,24 @@ import React, { Component } from 'react';
 import './bootstrap.min.css';
 import Header from './components/Header.js';
 import NuevaCita from './components/NuevaCita.js';
+import ListaCitas from './components/ListaCitas.js';
 
 class App extends Component {
-  state = {  }
-  render() { 
+  state = { 
+    citas: []
+  }
+
+  crearNuevaCita = datos => {
+    //copiar el state actual
+    const citas = [...this.state.citas, datos];
+
+    //agregar el nuevo state
+    this.setState({
+      citas
+    })
+  }
+
+  render() {
     return ( 
       <div className="container">
         <Header
@@ -13,7 +27,14 @@ class App extends Component {
         />
         <div className="row">
           <div className="col-md-10 mx-auto">
-            <NuevaCita />
+            <NuevaCita 
+              crearNuevaCita = {this.crearNuevaCita}
+            />
+          </div>
+          <div className="mt-5 col-md-10 mx-auto">
+            <ListaCitas
+              citas= {this.state.citas}
+            />
           </div>
         </div>
       </div>

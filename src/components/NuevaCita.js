@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+import PropTypes from 'prop-types';
 
 const stateInicial = { 
     cita : {
@@ -119,7 +120,7 @@ class NuevaCita extends Component {
                                     className="form-control"
                                     name="hora"
                                     onChange={this.handleChange}
-                                    value={this.state.cita.name}                                                                   
+                                    value={this.state.cita.hora}                                                                   
                                 />
                             </div>
                         </div> {/* form-group */}                                                
@@ -142,6 +143,10 @@ class NuevaCita extends Component {
             </div>
          );
     }
+}
+
+NuevaCita.propTypes = {
+    crearNuevaCita : PropTypes.func.isRequired
 }
  
 export default NuevaCita;
